@@ -15,7 +15,7 @@ bool check1(int a, int b) {
 check1(10,  5)  // true
 check1(10, 15)  // false
 
-vector v{1, 2, 3};
+vector v{1, 2, 3};  // <int> выводится в C++17 автоматически.
 sort(begin(v), end(v), check1);
 // v == {3, 2, 1}
 ```

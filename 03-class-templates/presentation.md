@@ -9,7 +9,7 @@ struct min_stack {
     std::vector<pair<T, T>> data;
 
     void push(T val) & {  /* .... */ }
-    T top() const { /* .... */ }
+    [[nodiscard]] T top() const { /* .... */ }
     // ....
 };
 // ....
@@ -35,9 +35,9 @@ cout << s2.min_element() << "\n";  // hello
     // void push(T val) & { /* .... */ }
     void push(const T &val) & { /* .... */ }
 
-    const T &top() const { /* .... */ }
+    [[nodiscard]] const T &top() const { /* .... */ }
 
-    const T &min_element() const { /* .... */ }
+    [[nodiscard]] const T &min_element() const { /* .... */ }
 ```
 
 Конкретно в данном случае возврат по ссылке безопасен,

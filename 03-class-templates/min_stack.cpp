@@ -11,7 +11,7 @@ using std::string;
 using std::vector;
 
 template<typename T>
-//requires requires(const T &a, const T &b) { a < b; }
+requires requires(const T &a, const T &b) { a < b; }
 struct min_stack {
     // .first - data, .second - min_prefix
     vector<pair<T, T>> data;
@@ -29,12 +29,12 @@ struct min_stack {
         data.pop_back();
     }
 
-    const T &top() const {
+    [[nodiscard]] const T &top() const {
         assert(!data.empty());
         return data.back().first;
     }
 
-    const T &min_element() const {
+    [[nodiscard]] const T &min_element() const {
         assert(!data.empty());
         return data.back().second;
     }
@@ -68,11 +68,13 @@ int main() {
         std::cout << s.top() << " " << s.min_element() << "\n";
     }
 
+#if 0
     {
         struct point { int x, y; };
         min_stack<point> s;
-        s.push({1, 2});  // ошибка компиляции только тут, если не использовать концепты.
+        //s.push({1, 2});  // ошибка компиляции только тут, если не использовать концепты.
         [[maybe_unused]] auto p = s.top();
         s.pop();
     }
+#endif
 }

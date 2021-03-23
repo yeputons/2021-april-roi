@@ -118,11 +118,11 @@ struct min_stack {
         }
     }
 
-    int top() const {  // const-qualifier
+    [[nodiscard]] int top() const {  // const-qualifier
         return data.back().first;
     }
 
-    int min_element() const {  // const-qualifier
+    [[nodiscard]] int min_element() const {  // const-qualifier
         return data.back().second;
     }
     // ....
@@ -149,9 +149,9 @@ public:
 
     void pop() & { /* .... */ }
 
-    int top() const {  /* .... */ }
+    [[nodiscard]] int top() const {  /* .... */ }
 
-    int min_element() const {  /* .... */ }
+    [[nodiscard]] int min_element() const {  /* .... */ }
 };
 // ....
 s.data.back().first;  // ошибка доступа к s.data
@@ -164,12 +164,12 @@ s.top();              // ок
 одновременно:
 
 ```c++
-    int top() const {
+    [[nodiscard]] int top() const {
         assert(!data.empty());  // (!)
         return data.back().first;
     }
 
-    int min_element() const {
+    [[nodiscard]] int min_element() const {
         assert(!data.empty());  // (!)
         return data.back().second;
     }

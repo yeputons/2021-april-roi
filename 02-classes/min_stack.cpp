@@ -25,12 +25,12 @@ struct min_stack {
         data.pop_back();
     }
 
-    int top() const {
+    [[nodiscard]] int top() const {
         assert(!data.empty());
         return data.back().first;
     }
 
-    int min_element() const {
+    [[nodiscard]] int min_element() const {
         assert(!data.empty());
         return data.back().second;
     }

@@ -35,6 +35,7 @@
 * Стандарты C++, в основном C++17 и C++20
 * Можно прочитать в дружелюбном виде в справочнике [cppreference.com](https://cppreference.com])
   * Не путать с cplusplus.com или C++ Tutorials (ошибки, неточности, меньше деталей).
+  * Например, можно узнать, как именно работает range-based-for и как его сделать для своего контейнера.
 * Больше текста: ISO C++ FAQ: [isocpp.org/wiki/faq](isocpp.org/wiki/faq)
 * Доклады на конференциях CppCon (особенно серия back to basics), C++ Russia
 
