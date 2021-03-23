@@ -91,6 +91,7 @@ template<typename T> using vp = vector<pair<T, T>>;
 vp<int> ~~ vector<pair<int, int>>
 ```
 
+---
 ## Единообразная работа с массивами (C++17)
 ```c++
 int a[10];
