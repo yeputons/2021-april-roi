@@ -9,14 +9,14 @@ using std::set;
 using std::sort;
 using std::vector;
 
-struct Checker {
+struct CloserToCenter {
     int center;
     bool operator()(int a, int b) const {
         return abs(a - center) < abs(b - center);
     }
 };
 
-void print_set(const set<int, Checker> &s) {
+void print_set(const set<int, CloserToCenter> &s) {
     for (int x : s) {
         cout << " " << x;
     }
@@ -25,7 +25,7 @@ void print_set(const set<int, Checker> &s) {
 
 int main() {
     {
-        Checker check3;
+        CloserToCenter check3;
         check3.center = 2;
 
         vector v{1, 2, 3};
@@ -36,13 +36,13 @@ int main() {
         cout << "\n";
     }
     {
-        Checker check4{5};                        // check4.center == 5
-        set<int, Checker> s1({1, 2, 3}, check4);  // копирование
+        CloserToCenter check4{5};                        // check4.center == 5
+        set<int, CloserToCenter> s1({1, 2, 3}, check4);  // копирование
         cout << "s1:";
         print_set(s1);
 
         check4.center = 2;
-        set<int, Checker> s2({1, 2, 3}, check4);  // копирование
+        set<int, CloserToCenter> s2({1, 2, 3}, check4);  // копирование
         cout << "s2:";
         print_set(s2);
 

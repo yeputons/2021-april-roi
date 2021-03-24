@@ -24,17 +24,17 @@ sort(begin(v), end(v), check1);
 ## Объекты-функторы
 Функциями дело не ограничивается.
 Переменные тоже могут быть функторами.
-Для этого нужно, чтобы у их типа был специальный метод с названием `operator()`.
-Это называется "перегрузка оператора":
+Для этого нужно, чтобы у них был метод `operator()`
+("перегрузка оператора"):
 
 ```c++
-struct Checker {
+struct Greater {
     bool operator()(int a, int b) {  // operator() — имя метода.
         return a > b;
     }
 };
 // ....
-Checker check2;
+Greater check2;
 check2(10,  5)  // true
 check2(10, 15)  // false
 
@@ -44,6 +44,13 @@ sort(begin(v), end(v), check2);
 ```
 
 Пока что выглядит не очень полезно: могли завести обычную функцию.
+Разве что для `set` есть какая-то польза: можно указать компаратор
+в угловых скобках.
+
+```c++
+set<int, less<int>> s1{1, 2, 3};     // {1, 2, 3}
+set<int, greater<int>> s2{1, 2, 3};  // {3, 2, 1}
+```
 
 ---
 ## Добавляем состояние
@@ -51,14 +58,14 @@ sort(begin(v), end(v), check2);
 которые можно динамически инициализировать:
 
 ```c++
-struct Checker {
+struct CloserToCenter {
     int center;
     bool operator()(int a, int b) {
         return abs(a - center) < abs(b - center);
     }
 };
 // ....
-Checker check3;
+CloserToCenter check3;
 cin >> check3.center;
 
 vector v{1, 2, 3}
@@ -66,29 +73,29 @@ sort(begin(v), end(v), check3);
 // v отсортирован по расстоянию до считанного check3.center
 ```
 
-Причём `Checker` — это обычный тип.
-Можем создать хоть `vector<Checker>`, все элементы которого ведут себя по-разному.
+Причём `CloserToCenter` — это обычный тип.
+Можем создать хоть `vector<CloserToCenter>`, все элементы которого ведут себя по-разному.
 
 С функциями так нельзя: все функции должны быть созданы до компиляции.
 
 ---
 ## Использование функторов
-Функторы можно передавать не только в функции вроде `sort`, но и в контейнеры:
+Функторы с состоянием можно передавать не только в функции вроде `sort`, но и в контейнеры:
 
 ```c++
-struct Checker {
+struct CloserToCenter {
     int center;
     bool operator()(int a, int b) const {  // !
         return abs(a - center) < abs(b - center);
     }
 };
 // ....
-Checker check4{5};                        // check4.center == 5
-set<int, Checker> s1({1, 2, 3}, check4);  // копирование
+CloserToCenter check4{5};                        // check4.center == 5
+set<int, CloserToCenter> s1({1, 2, 3}, check4);  // копирование
 // s1 == {3, 2, 1}
 
 check4.center = 2;
-set<int, Checker> s2({1, 2, 3}, check4);  // копирование
+set<int, CloserToCenter> s2({1, 2, 3}, check4);  // копирование
 // s2 = {2, 1}
 
 s1.insert(4);  // s1 == {4, 3, 2, 1}

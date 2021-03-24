@@ -9,9 +9,11 @@ using std::pair;
 using std::vector;
 
 struct min_stack {
+private:
     // .first - data, .second - min_prefix
     vector<pair<int, int>> data;
 
+public:
     void push(int val) & {
         if (data.empty()) {
             data.emplace_back(val, val);

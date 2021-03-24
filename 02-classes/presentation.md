@@ -51,7 +51,7 @@ cout << s.top() << " " << s.min_element() << "\n";  // 9 5
 ```
 
 ---
-## Создаём структуру
+## Создаём структуру (класс)
 ```c++
 struct min_stack {
     // .first - data, .second - min_prefix

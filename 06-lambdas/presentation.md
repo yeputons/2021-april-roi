@@ -32,7 +32,7 @@ int center = 5;
 vector v{1, 2, 3};
 struct lambda_239 {  // новая структура, её имя получить невозможно
     int &center;  // ссылка на локальную переменную
-    bool operator()(int a, int b) const {  // const автоматически
+    bool operator()(int a, int b) const {  // bool автоматически, const автоматически
         return abs(a - center) < abs(b - center);
     }
 };
