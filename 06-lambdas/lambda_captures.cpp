@@ -8,6 +8,16 @@ using std::vector;
 
 int main() {
     {
+        int a = 10, b = 20, c = 30;
+        auto print_all = [&]() {
+            cout << "a=" << a << ", b=" << b << ", c=" << c << "\n";
+        };
+        print_all();  // a=10, b=20, c=30
+        a = 50;
+        print_all();  // a=50, b=20, c=30
+    }
+    cout << "---\n";
+    {
         int a = 10, b = 20;
         vector v{1, 2, 3};
         auto print_ab_inc_a = [&a, &b]() {
