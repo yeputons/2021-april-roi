@@ -29,7 +29,7 @@ sort(begin(v), end(v), check1);
 
 ```c++
 struct Greater {
-    bool operator()(int a, int b) {  // operator() — имя метода.
+    bool operator()(int a, int b) {  // operator() — имя метода
         return a > b;
     }
 };

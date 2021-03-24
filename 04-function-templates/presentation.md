@@ -38,7 +38,7 @@ print(10);  // T = ???, ошибка компиляции
 ```
 
 ```c++
-// CTAD (Class Template Argument Deduction), начиная с C++17.
+// CTAD (Class Template Argument Deduction), начиная с C++17
 vector v{1, 2, 3};  // надо сразу проинициализировать
 ```
 
