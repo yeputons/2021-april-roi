@@ -79,7 +79,7 @@ int main() {
 #define N 100 + 1           // было
 int x = 2 * N;              // беда :(
 int x = 2 * 100 + 1;        // причина беды
-constexpr int N = 100'000;  // стало (' из C++14)
+constexpr int N = 100'000;  // стало (апостроф из C++14)
 
 #define vi vector<int>   // было
 using vi = vector<int>;  // стало (type alias, C++11)

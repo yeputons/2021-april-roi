@@ -32,7 +32,7 @@ int center = 5;
 vector v{1, 2, 3};
 struct lambda_239 {  // новая структура, её имя получить невозможно
     int &center;  // ссылка на локальную переменную
-    bool operator()(int a, int b) const {  // bool автоматически, const автоматически
+    auto operator()(int a, int b) const {  // const автоматически
         return abs(a - center) < abs(b - center);
     }
 };
@@ -138,8 +138,8 @@ auto f1 = [=, &v]() {              // [a, &v]
 };
 auto f2 = [=, &v = as_const(v)]() {  // [a, &cv = as_const(v)]
     cout << a << " " << v.size();    // ок
-    a++;                             // ошибка компиляции
     v = {};                          // ошибка компиляции
+    a++;                             // ошибка компиляции
 };
 auto f3 = [&, b, &v = as_const(v)]() {  // [&a, b, &v = as_const(v)]
     cout << a << " " << v.size();       // ок

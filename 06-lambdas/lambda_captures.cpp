@@ -73,8 +73,8 @@ int main() {
         };
         auto f2 = [=, &v = as_const(v)]() {  // [a, &cv = as_const(v)]
             cout << a << " " << v.size();    // ок
-            // a++;                          // ошибка компиляции
             // v = {};                       // ошибка компиляции
+            // a++;                          // ошибка компиляции
         };
         auto f3 = [&, b, &v = as_const(v)]() {  // [&a, b, &v = as_const(v)]
             cout << a << " " << v.size();       // ок
