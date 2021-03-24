@@ -76,18 +76,18 @@ int main() {
 
 ## Избавление от `#define`
 ```c++
-#define N 100 + 1           // Было
-int x = 2 * N;              // Беда :(
-int x = 2 * 100 + 1;        // Причина беды 
-constexpr int N = 100'000;  // Стало (' из C++14)
+#define N 100 + 1           // было
+int x = 2 * N;              // беда :(
+int x = 2 * 100 + 1;        // причина беды
+constexpr int N = 100'000;  // стало (' из C++14)
 
-#define vi vector<int>   // Было
-using vi = vector<int>;  // Стало (type alias, C++11)
+#define vi vector<int>   // было
+using vi = vector<int>;  // стало (type alias, C++11)
 
-#define vec vector                           // Было
-template<typename T> using vec = vector<T>;  // Стало (alias template, C++11)
+#define vec vector                           // было
+template<typename T> using vec = vector<T>;  // стало (alias template, C++11)
 
-// Можно даже так
+// можно даже так
 template<typename T> using vp = vector<pair<T, T>>;
 vp<int> ~~ vector<pair<int, int>>
 ```
@@ -98,13 +98,13 @@ vp<int> ~~ vector<pair<int, int>>
 int a[10];
 vector<int> b(10);
 
-// Было
+// было
 sort(a, a + 10);
 sort(b.begin(), b.end());
 cout << 10 << "\n";
 cout << b.size() << "\n";
 
-// Стало
+// стало
 sort(begin(a), end(a));
 sort(begin(b), end(b));
 cout << size(a) << "\n";

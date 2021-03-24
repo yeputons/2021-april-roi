@@ -27,17 +27,17 @@
 ---
 ## Желаемая реализация
 ```c++
-// Можно хранить так.
+// можно хранить так
 vector<int> data      {10, 5, 9, 4, 6};
 vector<int> min_prefix{10, 5, 5, 4, 4};
 
-// Или так
+// или так
 vector<pair<int, int>> data{
     {10, 10}, {5, 5}, {9, 5},
     {4, 4}, {6, 4};
 };
 
-// Но хочется так
+// но хочется так повысить уровень абстракции и упростить код
 min_stack<int> s;
 s.push(10);
 s.push(5);
@@ -82,9 +82,9 @@ struct min_stack {
     // .first - data, .second - min_prefix
     vector<pair<int, int>> data;
 
-    // Похоже на обычную функцию, может обращаться к data напрямую.
+    // похоже на обычную функцию, может обращаться к data напрямую
     void push(int val) & {  // & — lvalue-ref-qualifier (C++11)
-        if (data.empty()) {
+        if (data.empty()) {  // не нужен self, как в Python
             data.emplace_back(val, val);
         } else {
             data.emplace_back(val, min(val, data.back().second));
