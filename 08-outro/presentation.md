@@ -16,7 +16,7 @@ min_stack<int> s([](int a, int b) { /* .... */ });
 Получится так:
 
 ```c++
-template<typename T, typename Compare>
+template <typename T, typename Compare>
 auto make_min_stack(const Compare &compare) {
     return min_stack<T, Compare>(compare);
 }
@@ -37,7 +37,7 @@ template <auto X>
 
 ```c++
 // вариативные шаблоны:
-template<typename... Ts>
+template <typename... Ts>
 void print_all_twice(Ts... ts) {
     (cout << ... << ts);
     auto f = [](auto t) {

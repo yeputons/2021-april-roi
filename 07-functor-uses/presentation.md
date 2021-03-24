@@ -56,7 +56,7 @@ for (const auto &f : v) {
 Произвольные функторы можно очень эффективно передавать как параметры функций при помощи шаблонов.
 
 ```c++
-template<typename Fn>
+template <typename Fn>
 void call_10_20_30(Fn fn) {
     fn(10);
     fn(20);
@@ -83,7 +83,7 @@ call_10_20_30([](){});  // три ошибки компиляции
 Можно добавить ограничение, и в языке даже есть встроенный концепт `invocable`
 
 ```c++
-template<typename Fn>
+template <typename Fn>
 requires invocable<Fn, int>
 void call_10_20_30(Fn fn) {
     fn(10);
@@ -100,7 +100,7 @@ call_10_20_30([](){});  // одна ошибка компиляции
 ## Короткие ограничения (C++20)
 Или, что то же самое:
 ```c++
-template<invocable<int> Fn>  // заменили typename на концепт
+template <invocable<int> Fn>  // заменили typename на концепт
 void call_10_20_30(Fn fn) {
 // или
 void call_10_20_30(invocable<int> auto fn) {
@@ -127,7 +127,7 @@ call_10_20_30([](){});  // одна ошибка компиляции
 }
 // эквивалентно
 struct lambda_240 {
-    template<typename F>
+    template <typename F>
     auto operator()(const F &f) const {
         return x + y;
     }
@@ -145,7 +145,7 @@ struct lambda_240 {
 Наконец, научимся хранить функторы в своих классах, как это делает `set<>`.
 
 ```c++
-template<typename T, typename Compare = less<T>>  // новый параметр шаблона
+template <typename T, typename Compare = less<T>>  // новый параметр шаблона
 struct min_stack {
     Compare compare;  // храним функтор как поле, тип берем из шаблона
     // ....

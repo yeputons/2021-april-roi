@@ -4,7 +4,7 @@
 using std::abs;
 using std::cout;
 
-template<typename Fn>
+template <typename Fn>
 struct Caller {
     Fn fn;  // храним функтор как поле, тип берем из шаблона
     int x;

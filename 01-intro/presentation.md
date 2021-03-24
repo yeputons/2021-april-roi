@@ -84,10 +84,10 @@ constexpr int N = 100'000;  // стало (апостроф из C++14)
 using vi = vector<int>;  // стало (type alias, C++11)
 
 #define vec vector                           // было
-template<typename T> using vec = vector<T>;  // стало (alias template, C++11)
+template <typename T> using vec = vector<T>;  // стало (alias template, C++11)
 
 // можно даже так
-template<typename T> using vp = vector<pair<T, T>>;
+template <typename T> using vp = vector<pair<T, T>>;
 vp<int> ~~ vector<pair<int, int>>
 ```
 

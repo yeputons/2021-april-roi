@@ -4,7 +4,7 @@
 using std::cout;
 using std::invocable;
 
-// template<invocable<int> Fn>
+// template <invocable<int> Fn>
 // void call_10_20_30(Fn fn) {
 void call_10_20_30(invocable<int> auto fn) {
     fn(10);
