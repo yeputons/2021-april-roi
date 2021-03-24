@@ -10,7 +10,7 @@ using std::pair;
 using std::string;
 using std::vector;
 
-template<typename T>
+template <typename T>
 struct min_stack {
     // .first - data, .second - min_prefix
     vector<pair<T, T>> data;
@@ -39,7 +39,7 @@ struct min_stack {
     }
 };
 
-template<typename T>
+template <typename T>
 void print(const min_stack<T> &s) {
     cout << s.top() << " " << s.min_element() << "\n";
 }

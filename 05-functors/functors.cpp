@@ -27,7 +27,7 @@ int main() {
     {
         Checker check3;
         check3.center = 2;
-        
+
         vector v{1, 2, 3};
         sort(begin(v), end(v), check3);
         for (int x : v) {
@@ -36,7 +36,7 @@ int main() {
         cout << "\n";
     }
     {
-        Checker check4{5};  // check4.center == 5
+        Checker check4{5};                        // check4.center == 5
         set<int, Checker> s1({1, 2, 3}, check4);  // копирование
         cout << "s1:";
         print_set(s1);

@@ -11,7 +11,7 @@ void print(const min_stack<int> &s) {
 Делается так же, как и для классов:
 
 ```c++
-template<typename T>
+template <typename T>
 void print(const min_stack<T> &s) {
     cout << s.top() << " " << s.min_element() << "\n";
 }
@@ -52,7 +52,7 @@ vector v{1, 2, 3};  // надо сразу проинициализироват�
 Пока не вызовешь — не скомпилируется.
 
 ```c++
-template<typename T>
+template <typename T>
 void print(const min_stack<T> &s) {
     cout << s.toppp() << " " << s.min_element() << "\n";
 }
@@ -67,7 +67,7 @@ void print(const min_stack<T> &s) {
 ---
 ## Обобщённое программирование
 ```c++
-template<typename Container>
+template <typename Container>
 auto sum_all(const Container &c) {  // возвращаемый тип выведем автоматически
     auto res = 0;  // выведется в int!
     for (const auto &val : c) {
@@ -90,7 +90,7 @@ sum_all(set{1, 1, 4})        // 0 + 1 + 4 == 5
 ---
 ## Вспомогательные типы
 ```c++
-template<typename Container>
+template <typename Container>
 auto sum_all(const Container &c) {
     typename Container::value_type res{};
     for (const auto &val : c) {

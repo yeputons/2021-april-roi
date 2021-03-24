@@ -10,8 +10,10 @@ using std::pair;
 using std::string;
 using std::vector;
 
-template<typename T>
-requires requires(const T &a, const T &b) { a < b; }
+template <typename T>
+requires requires(const T &a, const T &b) {
+    a < b;
+}
 struct min_stack {
     // .first - data, .second - min_prefix
     vector<pair<T, T>> data;

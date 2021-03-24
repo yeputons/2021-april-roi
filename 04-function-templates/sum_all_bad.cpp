@@ -1,12 +1,12 @@
 #include <iostream>
-#include <vector>
 #include <set>
+#include <vector>
 
 using std::cout;
-using std::vector;
 using std::set;
+using std::vector;
 
-template<typename Container>
+template <typename Container>
 auto sum_all(const Container &c) {
     auto res = 0;
     for (const auto &val : c) {

@@ -2,7 +2,7 @@
 Финишная прямая: добавим угловые скобочки.
 
 ```c++
-template<typename T>  // typename или class, неважно
+template <typename T>  // typename или class, неважно
 struct min_stack {
     // Механически заменили внизу int на T.
     // .first - data, .second - min_prefix
@@ -74,8 +74,10 @@ s2.pop();             // скомпилируется
 В C++20 для этого можно указать ограничение на шаблон:
 
 ```c++
-template<typename T>
-requires requires(const T &a, const T &b) { a < b; }
+template <typename T>
+requires requires(const T &a, const T &b) {
+    a < b;
+}
 struct min_stack {
     // ...
 };

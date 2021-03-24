@@ -83,7 +83,7 @@ struct Checker {
     }
 };
 // ....
-Checker check4{5};  // check4.center == 5
+Checker check4{5};                        // check4.center == 5
 set<int, Checker> s1({1, 2, 3}, check4);  // копирование
 // s1 == {3, 2, 1}
 
