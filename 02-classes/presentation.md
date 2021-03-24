@@ -130,7 +130,7 @@ struct min_stack {
 void print(const min_stack &s) {
     cout << s.top() << " " << s.min_element() << "\n";
 }
-...
+// ....
 ```
 
 ---

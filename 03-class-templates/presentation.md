@@ -80,7 +80,7 @@ requires requires(const T &a, const T &b) {
     a < b;
 }
 struct min_stack {
-    // ...
+    // ....
 };
 ```
 
